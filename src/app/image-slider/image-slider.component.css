@@ -1,0 +1,23 @@
+/* image-slider.component.scss */
+.image-slider {
+    display: flex;
+    overflow: hidden;
+    margin: 0 12px;
+    
+    
+  
+    img {
+      width: 100%;
+      height: auto;
+      border-radius: 15%;
+    }
+  }
+  .image-wraper{
+    background-color:grey;
+    color: #ffffff;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  

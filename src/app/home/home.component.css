@@ -1,0 +1,48 @@
+/* home.component.css (create this file if not already present) */
+:host {
+    display: block;
+    margin-top: 70px; /* Adjust this value based on the height of your fixed navbar */
+  }
+  .collectionHead{
+   font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  }
+ 
+  .card{
+     width:470px;
+     border: 0cap;
+     text-decoration: none;
+     color: rgba(255, 255, 255, 0.8);
+     
+   
+    img{
+      width:450px;
+      border-radius: 20%;
+      padding: 15px 40px;
+      border-radius: 4px;
+      font-weight: normal;
+      text-transform: uppercase;
+      transition: all 0.2s ease-in-out; /* Smooth transition on hover */
+      position: relative;
+    }
+    img:hover {
+      color: rgba(255, 255, 255, 1); /* Brighten the text color */
+      box-shadow: 0 5px 15px rgba(27, 145, 230, 0.749); /* Add a subtle glow */
+      z-index: 1; 
+      transform: scale(0.95);
+  }
+  }
+  
+  .card-title{
+    background-color: bisque;
+    align-items: center;
+    text-align: center;
+    width:435px;
+    border-radius: 10px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: black;
+   
+  }
+  
+
+ 
+  

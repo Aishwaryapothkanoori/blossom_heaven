@@ -1,0 +1,62 @@
+
+/* styles.css */
+.product-card {
+    width: 25rem;
+    border: 1px solid #ddd;
+    padding: 1rem;
+    text-align: center;
+    margin: 1rem;
+
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.8);
+    
+    padding: 15px 40px;
+    border-radius: 4px;
+    font-weight: normal;
+    text-transform: uppercase;
+    transition: all 0.2s ease-in-out; /* Smooth transition on hover */
+    position: relative; 
+}
+.product-card:hover {
+    color: rgba(255, 255, 255, 1); /* Brighten the text color */
+    box-shadow: 0 5px 15px rgba(180, 107, 233, 0.4); /* Add a subtle glow */
+    z-index: 1; 
+    transform: scale(1.07);
+}
+
+.product-card img {
+    max-width: 100%;
+    height: auto;
+}
+
+.product-name {
+    font-weight: bold;
+    margin: 0.5rem 0;
+}
+
+.product-price {
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.product-rating {
+    color: #f8b700;
+}
+
+.star {
+    margin-right: 2px;
+}
+
+.reviews {
+    color: #888;
+}
+
+.wishlist-btn {
+    background-color: transparent;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+.card-button{
+    background-color:#ddd;
+}

@@ -1,0 +1,11 @@
+
+<!-- image-slider.component.html -->
+<div class="image-wraper">
+  <h2 style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Customer Stories</h2>
+    <div class="image-slider ">
+        <div *ngFor="let imageUrl of images">
+          <img [src]="imageUrl" alt="Image">
+        </div>
+      </div>
+</div>
+  

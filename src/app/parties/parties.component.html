@@ -1,0 +1,28 @@
+<br><br><br>
+<h1 style="color: darkmagenta;">Party Flowers</h1>
+
+
+<div class="row">
+  <div class="col-6 col-xl-3 col-lg-3 col-md-4 col-sm-4" *ngFor="let par of parties">
+    
+
+<div class="product-card" >
+  <img src="{{ par.image }}" alt="Midnight Cheers">
+  <h3 class="product-name">{{ par.description}}</h3>
+  <p class="product-price">{{par.price | currency:'INR' }}</p>
+  <div class="product-rating">
+      <span class="star">&#9733;</span>
+      <span class="star">&#9733;</span>
+      <span class="star">&#9733;</span>
+      <span class="star">&#9733;</span>
+      <span class="star">&#9733;</span>
+      <span class="reviews">(230)</span>
+  </div>
+     <div class="card-button">
+      <!-- <button class="wishlist-btn"> add to cart &#9825;</button> -->
+      <a href="https://rzp.io/i/QjeRHuK"><button class="wishlist-btn">Buy Now</button></a>
+     </div>
+</div>
+  </div>
+</div>
+

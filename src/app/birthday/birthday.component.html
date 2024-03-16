@@ -1,0 +1,27 @@
+<br><br><br>
+<h1 style="color: darkmagenta;">Birthday Flowers</h1>
+
+
+<div class="row">
+  <div class="col-6 col-xl-4 col-lg-4 col-md-4 col-sm-4" *ngFor="let bir of birthdayCards">
+    
+
+<div class="product-card" >
+  <img src="{{ bir.image }}" alt="Midnight Cheers">
+  <h3 class="product-name">{{ bir.description}}</h3>
+  <p class="product-price">{{bir.price | currency:'INR' }}</p>
+  <div class="product-rating">
+      <span class="star">&#9733;</span>
+      <span class="star">&#9733;</span>
+      <span class="star">&#9733;</span>
+      <span class="star">&#9733;</span>
+      <span class="star">&#9733;</span>
+      <span class="reviews">(230)</span>
+  </div>
+     <div class="card-button">
+      <!-- <button class="wishlist-btn"> add to cart &#9825;</button> -->
+      <a href="https://rzp.io/i/QjeRHuK"><button class="wishlist-btn">Buy Now</button></a>
+     </div>
+</div>
+  </div>
+</div>

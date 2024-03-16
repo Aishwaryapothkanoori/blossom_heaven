@@ -5,16 +5,27 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
+<<<<<<< HEAD
 		<version>2.7.9</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.ts</groupId>
+=======
+		<version>3.1.9</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+	<groupId>com.example</groupId>
+>>>>>>> 18e200c3edd9b40ec8171eaf186591b6fb7e2029
 	<artifactId>blossomheaven</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>blossomheaven</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
+<<<<<<< HEAD
 		<java.version>1.8</java.version>
+=======
+		<java.version>17</java.version>
+>>>>>>> 18e200c3edd9b40ec8171eaf186591b6fb7e2029
 	</properties>
 	<dependencies>
 		<dependency>
