@@ -24,6 +24,12 @@ import { SameDayComponent } from './same-day/same-day.component';
 import { WeddingFlowersComponent } from './wedding-flowers/wedding-flowers.component';
 import { GiftHamperComponent } from './gift-hamper/gift-hamper.component';
 import { NewArrivalsComponent } from './new-arrivals/new-arrivals.component';
+import { AdminComponent } from './admin/admin.component';
+import { FooterComponent } from './footer/footer.component';
+import { CartComponent } from './cart/cart.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { CartService } from './cart.service';
 
 @NgModule({
   declarations: [
@@ -45,16 +51,23 @@ import { NewArrivalsComponent } from './new-arrivals/new-arrivals.component';
     SameDayComponent,
     WeddingFlowersComponent,
     GiftHamperComponent,
-    NewArrivalsComponent
+    NewArrivalsComponent,
+    AdminComponent,
+    FooterComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     MatIconModule,
     SlickCarouselModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+    CommonModule,
+    BrowserModule,
   ],
-  providers: [],
+  providers: [CartService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

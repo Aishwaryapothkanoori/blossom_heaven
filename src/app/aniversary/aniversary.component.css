@@ -32,6 +32,8 @@
 .product-name {
     font-weight: bold;
     margin: 0.5rem 0;
+    font-size: 1.2rem;
+    color: #333;
 }
 
 .product-price {
@@ -60,3 +62,27 @@
 .card-button{
     background-color:#ddd;
 }
+.container {
+    display: flex;
+    justify-content: space-between; /* This will place the children at the ends */
+    padding: 10px; /* Adjust padding as needed */
+  }
+  
+  .button-left {
+    align-self: flex-start; /* Aligns button to the left */
+    padding: 10px 20px; /* Adjust padding as needed */
+    background-color: #5a97d8; /* Example blue background */
+    color: white; /* Text color */
+    border: none; /* No border */
+    cursor: pointer; /* Pointer cursor on hover */
+  }
+  
+  .button-right {
+    align-self: flex-end; /* Aligns button to the right */
+    padding: 10px 20px; /* Adjust padding as needed */
+    background-color: #96ebaa; /* Example green background */
+    color: white; /* Text color */
+    border: none; /* No border */
+    cursor: pointer; /* Pointer cursor on hover */
+  }
+  

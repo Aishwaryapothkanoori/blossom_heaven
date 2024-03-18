@@ -1,0 +1,70 @@
+<!-- add-to-cart.component.html -->
+
+
+<br><br><br>
+<h2>Items in Cart</h2>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- Horizontal Product Card HTML -->
+<div class="container">
+  <div class="product-section">
+    <div class="product-card-horizontal" *ngFor="let product of item">
+      <img class="product-image-horizontal" src="{{product.image}}" alt="Product Image">
+      <div class="product-details-horizontal">
+        <h3 class="product-name-horizontal">{{ product.description }}</h3>
+        <p class="product-price-horizontal">{{ product.price | currency:'INR'  }}</p>
+        <p>Quantity: {{ product.quantity }}</p> 
+        <button class="add-to-cart-btn-horizontal"  (click)="deleteFromCart(product)"> <i class="fas fa-trash"></i></button>
+      </div>
+    </div>
+</div>
+
+
+
+<!-- <div class="payment-section">
+  <img style="width: 300px;height: 300px;" src="https://static.wixstatic.com/media/ac91e2_67b67340da6349c6b5309b9abb862c01~mv2.jpeg/v1/fill/w_980,h_1307,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/ac91e2_67b67340da6349c6b5309b9abb862c01~mv2.jpeg"> 
+<div class="total-price">
+  <h2>Total Price: <span>{{ totalPrice | currency:'INR' }}</span></h2>
+</div>
+<button  class="pay-now-btn" (click)="proceedToPayment()">Pay Now</button>
+</div> -->
+
+
+
+<div class="col-md-4">
+  <div class="card mb-4">
+    <div class="card-header py-3">
+      <h5 class="mb-0">Payment</h5>
+    </div>
+    <div class="card-body">
+      <ul class="list-group list-group-flush">
+        <li
+          class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
+          Total Price
+          <span>{{ totalPrice | currency:'INR' }}</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center px-0">
+          Shipping
+          <span>₹0</span>
+        </li>
+        <li
+          class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
+          <div>
+            <strong>Total amount</strong>
+            <strong>
+              <p class="mb-0">(including VAT)</p>
+            </strong>
+          </div>
+          <span><strong>{{ totalPrice | currency:'INR' }}</strong></span>
+        </li>
+      </ul>
+
+     <a href="https://rzp.io/l/JyiZPd9Ss"> <button type="button" class="btn btn-primary btn-lg btn-block">
+        Pay Now
+      </button></a>
+    </div>
+  </div>
+</div>
+
+</div>
+
+

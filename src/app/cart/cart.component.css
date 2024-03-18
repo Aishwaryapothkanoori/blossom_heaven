@@ -1,0 +1,75 @@
+
+  
+ 
+  
+  /* Horizontal Product Card CSS */
+.product-card-horizontal {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ddd;
+  padding-left: 16px;
+  max-width: 700px; /* Adjust as needed */
+  margin: 16px;
+}
+
+.product-image-horizontal {
+  width: 150px; /* Adjust as needed */
+  height: auto;
+  margin-right: 16px;
+}
+
+.product-details-horizontal {
+  flex-grow: 1;
+}
+
+.product-name-horizontal,
+.product-description-horizontal,
+.product-price-horizontal {
+  margin: 0;
+  margin-bottom: 8px;
+}
+
+
+/* Payment Section CSS */
+.payment-section {
+  max-width: 300px; /* Adjust as needed */
+  padding-right: 16px;
+  border: 1px solid #ddd;
+  margin-left: 16px; /* Aligns to the left side */
+}
+
+.total-price h2 {
+  margin: 0;
+  margin-bottom: 16px;
+  font-size: 1.5em;
+}
+
+.pay-now-btn {
+  background-color: #4CAF50; /* Green background */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+.pay-now-btn:hover {
+  background-color: #45a049; /* Darker green on hover */
+}
+.container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.product-section {
+  width: 70%; /* Adjust width as needed */
+}
+
+.payment-section {
+  width: 25%; /* Adjust width as needed */
+  height:36%;
+  align-items: center;
+  
+}
+

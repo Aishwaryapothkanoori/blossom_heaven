@@ -11,6 +11,8 @@ import { SameDayComponent } from './same-day/same-day.component';
 import { WeddingFlowersComponent } from './wedding-flowers/wedding-flowers.component';
 import { GiftHamperComponent } from './gift-hamper/gift-hamper.component';
 import { NewArrivalsComponent } from './new-arrivals/new-arrivals.component';
+import { CartComponent } from './cart/cart.component';
+
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -25,6 +27,7 @@ const routes: Routes = [
   { path:'wedding-flowers',component:WeddingFlowersComponent},
   { path:'gift-hamper',component:GiftHamperComponent},
   { path:'new-arrivals',component:NewArrivalsComponent},
+  { path:'cart',component:CartComponent},
 ];
 
 @NgModule({

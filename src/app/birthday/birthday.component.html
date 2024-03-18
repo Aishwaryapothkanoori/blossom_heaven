@@ -8,7 +8,7 @@
 
 <div class="product-card" >
   <img src="{{ bir.image }}" alt="Midnight Cheers">
-  <h3 class="product-name">{{ bir.description}}</h3>
+  <p class="product-name">{{bir.description}}</p>
   <p class="product-price">{{bir.price | currency:'INR' }}</p>
   <div class="product-rating">
       <span class="star">&#9733;</span>
@@ -18,9 +18,11 @@
       <span class="star">&#9733;</span>
       <span class="reviews">(230)</span>
   </div>
-     <div class="card-button">
+     <div  class="container">
       <!-- <button class="wishlist-btn"> add to cart &#9825;</button> -->
-      <a href="https://rzp.io/i/QjeRHuK"><button class="wishlist-btn">Buy Now</button></a>
+      <button type="button" class="button-left btn btn-primary btn-lg btn-block" (click)="addToCart(bir)">Add to Cart</button>
+      <a href="https://rzp.io/l/MbBUiaJm"><button type="button" class="button-right btn btn-primary btn-lg btn-block">Buy Now</button></a>
+      
      </div>
 </div>
   </div>

@@ -3,7 +3,7 @@
 
 
 <div class="row">
-  <div class="col-6 col-xl-3 col-lg-3 col-md-4 col-sm-4" *ngFor="let par of parties">
+  <div class="col-6 col-xl-4 col-lg-3 col-md-4 col-sm-4" *ngFor="let par of parties">
     
 
 <div class="product-card" >
@@ -18,11 +18,13 @@
       <span class="star">&#9733;</span>
       <span class="reviews">(230)</span>
   </div>
-     <div class="card-button">
-      <!-- <button class="wishlist-btn"> add to cart &#9825;</button> -->
-      <a href="https://rzp.io/i/QjeRHuK"><button class="wishlist-btn">Buy Now</button></a>
-     </div>
+  <div  class="container">
+    <!-- <button class="wishlist-btn"> add to cart &#9825;</button> -->
+    <button type="button" class="button-left btn btn-primary btn-lg btn-block" (click)="addToCart(par)">Add to Cart</button>
+    <a href="https://rzp.io/l/TybE3MIhQp"><button type="button" class="button-right btn btn-primary btn-lg btn-block">Buy Now</button></a>
+    
+   </div>
 </div>
   </div>
 </div>
-
+https://rzp.io/l/TybE3MIhQp
