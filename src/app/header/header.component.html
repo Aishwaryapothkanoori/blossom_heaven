@@ -8,10 +8,14 @@
             <a class="nav-link text-white me-3" routerLink="about">About Us</a>
           </li>
         <li class="nav-item">
-          <a class="nav-link text-white me-3" href="#" routerLink="cart"><i class="fas fa-shopping-cart"></i></a>
+          <a class="nav-link text-white me-3" routerLink="cart">
+            <i class="fas fa-shopping-cart"></i>
+            <span *ngIf="cartItemCount > 0" class="badge rounded-pill bg-danger">{{ cartItemCount }}</span>
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white me-5" routerLink="login"><i class="fas fa-user"></i></a>
+          <a class="nav-link text-white me-5" routerLink="login" *ngIf="!isLoggedIn">LOGIN</a>
+        <a class="nav-link text-white me-5"  *ngIf="isLoggedIn" (click)="logout()">LOGOUT</a>
         </li>
       </ul>
     </div>

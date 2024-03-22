@@ -1,5 +1,7 @@
 import { Component,OnInit } from '@angular/core';
 import { CartService } from '../cart.service';
+import { Router } from '@angular/router';
+import { LoginService } from '../login.service';
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
@@ -8,7 +10,8 @@ import { CartService } from '../cart.service';
 export class CartComponent implements OnInit{
   item: any;
   totalPrice: number = 0;
-  constructor(private cartService: CartService) {}
+  isLoggedIn: boolean = false;
+  constructor(private cartService: CartService, private router: Router,private loginService: LoginService) {}
 
   addToCart(item : any) {
     // Call a service method to add the item to the cart
@@ -20,9 +23,7 @@ export class CartComponent implements OnInit{
     this.calculateTotalPrice();
   }
   deleteFromCart(product: any): void {
-    // Call a service method to remove the item from the cart
     this.cartService.removeFromCart(product);
-    // Update the local item list to reflect the changes
     this.item = this.cartService.getItems();
     this.calculateTotalPrice();
   }
@@ -31,8 +32,30 @@ export class CartComponent implements OnInit{
   }
   
   proceedToPayment(): void {
-    // Implement the logic to navigate to the payment page or trigger payment process
-    console.log("Proceeding to payment...");
-    // For example, you can navigate to a payment component or route
+    this.isLoggedIn = this.loginService.getUserLoggedStatus();
+
+    if (this.isLoggedIn) {
+      console.log("User logged in, redirecting to payment page...");
+      this.router.navigate(['/payment']);
+    } else {
+      console.log("User not logged in, redirecting to login page...");
+      this.router.navigate(['/login']);
+    }
+  }
+  increaseQuantity(product: any): void {
+    this.cartService.increaseQuantity(product);
+    this.calculateTotalPrice();
+  }
+
+  decreaseQuantity(product: any): void {
+    product.quantity--;
+
+  // If the quantity becomes 0, remove the item from the cart
+  if (product.quantity === 0) {
+    this.deleteFromCart(product);
+  } else {
+    // Update the total price and cart count
+    this.calculateTotalPrice();
+  }
   }
 }

@@ -1,3 +1,4 @@
+<br><br><br>
 <div class="admin">
     <h1>Admin Page</h1>
     <div class="admin-table-container">
@@ -10,7 +11,7 @@
             <th>Password</th>
             <th>Address</th>
             <th>City</th>
-            <th>Update</th>
+            <!-- <th>Update</th> -->
             <th>Delete</th>
           </tr>
         </thead>
@@ -22,8 +23,8 @@
             <td>{{ item.password }}</td>
             <td>{{ item.address }}</td>
             <td>{{ item.city }}</td>
-            <td><button type="button" (click)="updateItem(item)">Update</button></td>
-            <td><button type="button" (click)="deleteItem(item.id)">Delete</button></td>
+            <!-- <td><button type="button" (click)="updateItem(item)">Update</button></td> -->
+            <td><button type="button" (click)="deleteItem(item.name)">Delete</button></td>
           </tr>
         </tbody>
       </table>

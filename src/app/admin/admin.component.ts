@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component,OnInit} from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -20,12 +21,12 @@ export class AdminComponent implements OnInit{
   selectedItem: any;
   showUpdateForm: boolean = false;
 
-  feedbackForm: FormGroup;
-  feedbacks: Review[] = [];
-  submitted = false;
+  // feedbackForm: FormGroup;
+  // feedbacks: Review[] = [];
+  // submitted = false;
   customers:any;
 
-  constructor(private http: HttpClient, private formBuilder: FormBuilder,private loginService:LoginService) {
+  constructor(private http: HttpClient, private formBuilder: FormBuilder,private loginService:LoginService,private router:Router) {
     this.updateForm = this.formBuilder.group({
       name: [''],
       email: [''],
@@ -33,17 +34,18 @@ export class AdminComponent implements OnInit{
       password: ['']
     });
 
-    this.feedbackForm = this.formBuilder.group({
-      rating: ['', Validators.required],
-      name: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      review: ['', Validators.required]
-    });
+  //   this.feedbackForm = this.formBuilder.group({
+  //     rating: ['', Validators.required],
+  //     name: ['', Validators.required],
+  //     email: ['', [Validators.required, Validators.email]],
+  //     review: ['', Validators.required]
+  //   });
   }
 
   ngOnInit(): void {
     this.loadItems();
     // this.getFeedbacks();
+    
   }
 
   loadItems() {
@@ -52,18 +54,15 @@ export class AdminComponent implements OnInit{
     });
   }
 
-  deleteItem(id: number) {
-    this.loginService.deletecustomer(id).subscribe(() => {
+  deleteItem(name: string) {
+    this.loginService.deletecustomerByName(name).subscribe(() => {
       console.log('Customer deleted successfully');
-      // Optionally, you can reload the customer list or perform any other action upon successful deletion
+      this.loadItems(); 
+    }, (error:any) => {
+      console.error('Delete failed:', error);
     });
-    
-    const i = this.customers.findIndex((customer: any) => {
-      return customer.empId == id;
-    });
-    
-    this.customers.splice(i, 1);
   }
+  
 
   updateItem(item: any) {
     this.selectedItem = item;
@@ -90,10 +89,11 @@ export class AdminComponent implements OnInit{
     });
   }
 
-  // getFeedbacks() {
-  //   this.feedbackService.getAllFeedbacks().subscribe(data => {
-  //     this.feedbacks = data;
-  //   });
-  // }
+  logout() {
+    // Perform logout logic
+    this.loginService.logout();
+    // Redirect to the login page after logout
+    this.router.navigate(['/login']);
+  }
 
 }

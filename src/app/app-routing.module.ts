@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
@@ -12,22 +12,27 @@ import { WeddingFlowersComponent } from './wedding-flowers/wedding-flowers.compo
 import { GiftHamperComponent } from './gift-hamper/gift-hamper.component';
 import { NewArrivalsComponent } from './new-arrivals/new-arrivals.component';
 import { CartComponent } from './cart/cart.component';
+import { AdminComponent } from './admin/admin.component';
+import { AuthGuard } from './auth.guard';
 
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'home', component: HomeComponent },
-  { path:'about',component:AboutComponent },
+  { path:'about',component:AboutComponent,},
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path:'birthday',component:BirthdayComponent},
-  { path:'parties',component:PartiesComponent},
+  { path:'parties',component:PartiesComponent}, 
   { path:'aniversary',component:AniversaryComponent},
   { path:'same-day',component:SameDayComponent},
   { path:'wedding-flowers',component:WeddingFlowersComponent},
   { path:'gift-hamper',component:GiftHamperComponent},
   { path:'new-arrivals',component:NewArrivalsComponent},
   { path:'cart',component:CartComponent},
+  { path:'admin',component:AdminComponent},
+
+  
 ];
 
 @NgModule({

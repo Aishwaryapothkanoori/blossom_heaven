@@ -3,7 +3,7 @@
 
 
 <div class="row">
-  <div class="col-6 col-xl-3 col-lg-3 col-md-4 col-sm-4" *ngFor="let wed of wedding">
+  <div class="col-12 col-xl-4 col-lg-4 col-md-6 col-sm-12" *ngFor="let wed of wedding">
     
 
 <div class="product-card" >
@@ -21,8 +21,10 @@
   <div  class="container">
     <!-- <button class="wishlist-btn"> add to cart &#9825;</button> -->
     <button type="button" class="button-left btn btn-primary btn-lg btn-block" (click)="addToCart(wed)">Add to Cart</button>
-    <a href="https://rzp.io/l/SrQxRd4"><button type="button" class="button-right btn btn-primary btn-lg btn-block">Buy Now</button></a>
-    
+    <!-- <a 
+      >
+      <button type="button" class="button-right btn btn-primary btn-lg btn-block"  (click)="buyNow(wed)">Buy Now</button></a> -->
+      <app-buynowbutton [paymentLink]="'https://rzp.io/l/SrQxRd4'"></app-buynowbutton>
    </div>
 </div>
   </div>

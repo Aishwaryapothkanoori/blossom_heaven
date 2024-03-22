@@ -3,11 +3,11 @@
 
 
 <div class="row">
-  <div class="col-6 col-xl-4 col-lg-3 col-md-4 col-sm-4" *ngFor="let par of parties">
+  <div class="col-12 col-xl-4 col-lg-3 col-md-6 col-sm-12" *ngFor="let par of parties">
     
 
 <div class="product-card" >
-  <img src="{{ par.image }}" alt="Midnight Cheers">
+  <img class="image-card" src="{{ par.image }}" alt="Midnight Cheers">
   <h3 class="product-name">{{ par.description}}</h3>
   <p class="product-price">{{par.price | currency:'INR' }}</p>
   <div class="product-rating">
@@ -21,10 +21,10 @@
   <div  class="container">
     <!-- <button class="wishlist-btn"> add to cart &#9825;</button> -->
     <button type="button" class="button-left btn btn-primary btn-lg btn-block" (click)="addToCart(par)">Add to Cart</button>
-    <a href="https://rzp.io/l/TybE3MIhQp"><button type="button" class="button-right btn btn-primary btn-lg btn-block">Buy Now</button></a>
+    <!-- <a href="https://rzp.io/l/TybE3MIhQp"><button type="button" class="button-right btn btn-primary btn-lg btn-block">Buy Now</button></a> -->
+    <app-buynowbutton [paymentLink]="'https://rzp.io/l/TybE3MIhQp'"></app-buynowbutton>
     
    </div>
 </div>
   </div>
 </div>
-https://rzp.io/l/TybE3MIhQp

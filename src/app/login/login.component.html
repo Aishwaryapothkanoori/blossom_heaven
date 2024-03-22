@@ -11,14 +11,20 @@
           <p>Please login to your account</p>
           <div class="form-group">
             <input type="email" id="form1Example13" class="form-control form-control-lg" name="email" placeholder="email" [(ngModel)]="email"
-            #mail="ngModel" required minlength="6" maxlength="20"/>
-            
+            #mail="ngModel" required minlength="6"/>
+            <div *ngIf="mail.touched && mail.invalid && (mail.errors?.['required'] || mail.errors?.['email'])" class="text-danger">
+              <span *ngIf="mail.errors?.['required']">Email is required.</span>
+              <span *ngIf="mail.errors?.['email']">Please enter a valid email address.</span>
+            </div>
           </div>
 <br/>
           <!-- Password input -->
           <div class="form-group">
             <input type="password" id="form1Example23" class="form-control form-control-lg" name="password" placeholder="password"
             [(ngModel)]="password" #pass="ngModel" required minlength="8" maxlength="16"/>
+            <div *ngIf="pass.touched && pass.invalid && pass.errors?.['required']" class="text-danger">
+              Password is required.
+            </div>
           </div>
           <br/>
           <!-- <div class="d-flex justify-content-around align-items-center mb-4"> -->
@@ -29,7 +35,39 @@
             </div>
             <a href="#!">Forgot password?</a>
           </div> -->
-          <button type="submit" class="btn btn-primary btn-lg btn-block">Submit</button><br/>
+          <div class="form-group">
+            <label for="captchaInput">Captcha</label>
+            <div class="input-group">
+              <input
+                type="text"
+                id="captchaInput"
+                name="captchaInput"
+                [(ngModel)]="captchaInput"
+                required
+                placeholder="Enter Captcha"
+                class="form-control"
+                aria-describedby="captchaError"
+              />
+              <span class="input-group-addon">{{ captcha }}</span>
+            </div><br>
+            <div
+              *ngIf="loginForm.submitted && !captchaInput"
+              class="error-message"
+              id="captchaError"
+            >
+              Please Enter Captcha
+            </div>
+            <div
+              *ngIf="loginForm.submitted && captcha !== captchaInput"
+              class="error-message"
+              id="captchaMismatchError"
+            >
+              Incorrect Captcha. Please try again.
+            </div>
+          </div>
+          <!-- Captcha Input -->
+          <br>
+          <button type="submit" class="btn btn-primary btn-lg btn-block">Login</button><br/>
           <!-- Submit button -->
           
           Don't have an account?
@@ -38,4 +76,5 @@
       </div>
     </div>
   </div>
+  
 </section>

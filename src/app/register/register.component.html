@@ -1,5 +1,5 @@
 <!-- signup.component.html -->
-
+<br><br>
 <section class="vh-100">
     <div class="container py-5 h-100">
         <div class="row d-flex align-items-center justify-content-center h-100">
@@ -10,37 +10,57 @@
                 <form *ngIf="showSignUpForm" [formGroup]="signUpForm" (ngSubmit)="signupSubmit()">
                     <!-- Signup Form -->
                     <h4 class="mt-1 mb-5 pb-1">Create an account</h4>
-                    <p>Please fill in the following details</p>
+                    <h3 style="color: rgb(142, 8, 110);">Please fill in the following details</h3>
 
-                    <!-- Additional Signup Fields -->
+                    <br/>
                     <div class="form-outline mb-4">
-                        <input type="text" id="name" class="form-control form-control-lg" formControlName="name" />
                         <label class="form-label" for="name">Full Name</label>
+                        <input type="text" id="name" class="form-control form-control-lg" formControlName="name" />
                     </div>
                     <div class="form-outline mb-4">
-                        <input type="email" id="email" class="form-control form-control-lg" formControlName="email" />
                         <label class="form-label" for="email">Email address</label>
+                        <input type="email" id="email" class="form-control form-control-lg" formControlName="email" (blur)="handleEmailBlur()" />
+                        <div *ngIf="signUpForm.get('email')?.invalid && signUpForm.get('email')?.dirty">
+                            <ng-container *ngIf="signUpForm.get('email')?.errors as errors">
+                                <div  class="text-danger" *ngIf="errors['required']">Email is required.</div>
+                                <div  class="text-danger" *ngIf="errors['email']">Please enter a valid email address ending with &#64;gmail.com</div>
+                            </ng-container>
+                        </div>
                     </div>
                     <div class="form-outline mb-4">
+                        <label class="form-label" for="password">Password</label>
                         <input type="password" id="password" class="form-control form-control-lg"
                             formControlName="password" />
-                        <label class="form-label" for="password">Password</label>
-                        <div *ngIf="password?.invalid && (password?.dirty || password?.touched)">
+                        <div *ngIf="password?.invalid">
                             <ng-container *ngIf="password?.errors as errors">
-                                <div *ngIf="errors['required']">Password is required.</div>
-                                <div *ngIf="errors['pattern']">Password must contain at least 8 characters, one
+                                <div *ngIf="errors['required']"></div>
+                                <div  class="text-danger" *ngIf="errors['pattern']">Password must contain at least 8 characters, one
                                     uppercase letter, one lowercase letter, one number, and one special character.</div>
                             </ng-container>
                         </div>
                     </div>
                     <div class="form-outline mb-4">
-                        <input type="tel" id="phno" class="form-control form-control-lg" formControlName="phno" />
+                        <label class="form-label" for="confirmPassword">Confirm Password</label>
+                        <input type="password" id="confirmPassword" class="form-control form-control-lg" formControlName="confirmPassword" />
+                        <div   *ngIf="confirmPassword?.errors?.['required']">Confirm password is required.</div>
+                        <div  class="text-danger" *ngIf="confirmPassword?.errors?.['passwordMismatch']">Passwords do not match.</div>
+                    </div>
+                    
+                    
+                    <div class="form-outline mb-4">
                         <label class="form-label" for="phno">Phone number</label>
+                        <input type="tel" id="phno" class="form-control form-control-lg" formControlName="phno" />
+                        <div *ngIf="signUpForm.get('phno')?.invalid && signUpForm.get('phno')?.dirty">
+                            <ng-container *ngIf="signUpForm.get('phno')?.errors as errors">
+                                <div  class="text-danger" *ngIf="errors['required']">Phone number is required.</div>
+                                <div  class="text-danger" *ngIf="errors['pattern']">Please enter a valid 10-digit phone number.</div>
+                            </ng-container>
+                        </div>
                     </div>
                     <div class="form-outline mb-4">
+                        <label class="form-label" for="address">Address</label>
                         <input type="address" id="address" class="form-control form-control-lg"
                             formControlName="address" />
-                        <label class="form-label" for="address">Address</label>
                     </div>
                     <!-- <div class="form-outline mb-4">                      
                     <select name="country" ngModel required title="Country">        
@@ -50,9 +70,9 @@
                       <label class="form-label" for="country">Country</label>
                     </div> -->
                     <div class="form-outline mb-4">
+                        <label class="form-label" for="city"> City</label>
                         <input type="city" id="city" class="form-control form-control-lg"
                             formControlName="city" />
-                        <label class="form-label" for="city"> City</label>
                     </div>
                     <br/>
                     <!-- Submit button -->

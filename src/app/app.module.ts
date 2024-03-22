@@ -30,6 +30,7 @@ import { CartComponent } from './cart/cart.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { CartService } from './cart.service';
+import { BuynowbuttonComponent } from './buynowbutton/buynowbutton.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { CartService } from './cart.service';
     NewArrivalsComponent,
     AdminComponent,
     FooterComponent,
-    CartComponent
+    CartComponent,
+    BuynowbuttonComponent
   ],
   imports: [
     BrowserModule,

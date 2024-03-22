@@ -13,11 +13,14 @@ export class GiftHamperComponent implements OnInit {
   }
   ngOnInit(): void {
     this.service.getAllGiftHamper().subscribe((data : any)=>{
-      this.gifthamper=data;
+      this.gifthamper = data.map((gift: any) => ({ ...gift, quantity: 1 }));
     });
   }
   addToCart(gifthamper: any) {
     console.log("Adding to cart:", gifthamper);
     this.cartService.addToCart(gifthamper);
   }
+
+
+  
 }

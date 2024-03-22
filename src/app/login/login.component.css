@@ -5,3 +5,7 @@ flex: 1;
 height: 1px;
 background: #eee;
 }
+.error-message {
+    color: #dc3545;
+    margin-top: 5px;
+  }

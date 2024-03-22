@@ -12,7 +12,12 @@
       <div class="product-details-horizontal">
         <h3 class="product-name-horizontal">{{ product.description }}</h3>
         <p class="product-price-horizontal">{{ product.price | currency:'INR'  }}</p>
-        <p>Quantity: {{ product.quantity }}</p> 
+        <div class="quantity-controls">
+          <button class="quantity-btn" (click)="increaseQuantity(product)"> + </button>
+          <span class="product-quantity"> {{ product.quantity }} </span>
+          <button class="quantity-btn" (click)="decreaseQuantity(product)"> - </button>
+        </div>
+        <br/>
         <button class="add-to-cart-btn-horizontal"  (click)="deleteFromCart(product)"> <i class="fas fa-trash"></i></button>
       </div>
     </div>
@@ -58,9 +63,10 @@
         </li>
       </ul>
 
-     <a href="https://rzp.io/l/JyiZPd9Ss"> <button type="button" class="btn btn-primary btn-lg btn-block">
-        Pay Now
-      </button></a>
+     <!-- <a href="https://rzp.io/l/JyiZPd9Ss"> <button type="button" class="btn btn-primary btn-lg btn-block"> -->
+      <app-buynowbutton [paymentLink]="'https://rzp.io/l/JyiZPd9Ss'"></app-buynowbutton>
+        <!-- Pay Now
+      </button></a> -->
     </div>
   </div>
 </div>

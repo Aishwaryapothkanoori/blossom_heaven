@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
-
+import { BehaviorSubject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
   items: any[] = [];
+  private cartItems: any[] = [];
+  private cartItemCount = new BehaviorSubject<number>(0);
   constructor() { }
   
   addToCart(item: any): void {
@@ -22,20 +24,21 @@ export class CartService {
   
     console.log("Item added to cart:", item);
     console.log("Items in cart:", this.items);
+    this.updateCartItemCount();
   }
   
   
   
   
-  getItems() {
+  getItems() : any[]{
     return this.items;
     
   }
   
 
-  clearCart() {
+  clearCart():void {
     this.items = [];
-    return this.items;
+    this.updateCartItemCount();
   }
 
   removeFromCart(item: any): void {
@@ -44,10 +47,29 @@ export class CartService {
       this.items.splice(index, 1);
       console.log("Item removed from cart:", item);
       console.log("Items in cart:", this.items);
+      this.updateCartItemCount();
     }
   }
 
   getTotalPrice(): number {
-    return this.items.reduce((total, item) => total + item.price, 0);
+    return this.items.reduce((total, item) => total + (item.price * item.quantity), 0);
+  }
+  private updateCartItemCount(): void {
+    this.cartItemCount.next(this.items.length);
+  }
+
+  getCartItemCount(): BehaviorSubject<number>  {
+    return this.cartItemCount;
+  }
+  increaseQuantity(item: any): void {
+    item.quantity++;
+    this.updateCartItemCount();
+  }
+
+  decreaseQuantity(item: any): void {
+    if (item.quantity > 1) {
+      item.quantity--;
+      this.updateCartItemCount();
+    }
   }
 }
