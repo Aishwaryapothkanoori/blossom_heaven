@@ -13,9 +13,15 @@
             <span *ngIf="cartItemCount > 0" class="badge rounded-pill bg-danger">{{ cartItemCount }}</span>
           </a>
         </li>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a class="nav-link text-white me-5" routerLink="login" *ngIf="!isLoggedIn">LOGIN</a>
         <a class="nav-link text-white me-5"  *ngIf="isLoggedIn" (click)="logout()">LOGOUT</a>
+        </li>-->
+        <li class="nav-item" *ngIf="!isLoggedIn"> 
+          <a class="nav-link text-white me-5" routerLink="login">LOGIN</a>
+        </li>
+        <li class="nav-item" *ngIf="isLoggedIn && !isAdminLogin()">
+          <a class="nav-link text-white me-5" (click)="logout()">LOGOUT</a>
         </li>
       </ul>
     </div>

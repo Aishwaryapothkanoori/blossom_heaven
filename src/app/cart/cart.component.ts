@@ -36,7 +36,7 @@ export class CartComponent implements OnInit{
 
     if (this.isLoggedIn) {
       console.log("User logged in, redirecting to payment page...");
-      this.router.navigate(['/payment']);
+      window.open('https://rzp.io/l/29rMHuo', '_blank');
     } else {
       console.log("User not logged in, redirecting to login page...");
       this.router.navigate(['/login']);

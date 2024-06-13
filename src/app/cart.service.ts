@@ -5,9 +5,16 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class CartService {
   items: any[] = [];
+  private cartItemsKey = 'cartItems';
   private cartItems: any[] = [];
   private cartItemCount = new BehaviorSubject<number>(0);
-  constructor() { }
+  constructor() {
+    const storedItems = localStorage.getItem(this.cartItemsKey);
+    if (storedItems) {
+      this.items = JSON.parse(storedItems);
+      this.updateCartItemCount();
+    }
+   }
   
   addToCart(item: any): void {
     // Check if an item with the same properties already exists in the cart
@@ -24,6 +31,7 @@ export class CartService {
   
     console.log("Item added to cart:", item);
     console.log("Items in cart:", this.items);
+    localStorage.setItem(this.cartItemsKey, JSON.stringify(this.items));
     this.updateCartItemCount();
   }
   
@@ -38,6 +46,7 @@ export class CartService {
 
   clearCart():void {
     this.items = [];
+    localStorage.removeItem(this.cartItemsKey);
     this.updateCartItemCount();
   }
 
@@ -47,6 +56,7 @@ export class CartService {
       this.items.splice(index, 1);
       console.log("Item removed from cart:", item);
       console.log("Items in cart:", this.items);
+      localStorage.setItem(this.cartItemsKey, JSON.stringify(this.items));
       this.updateCartItemCount();
     }
   }
@@ -63,12 +73,14 @@ export class CartService {
   }
   increaseQuantity(item: any): void {
     item.quantity++;
+    localStorage.setItem(this.cartItemsKey, JSON.stringify(this.items));
     this.updateCartItemCount();
   }
 
   decreaseQuantity(item: any): void {
     if (item.quantity > 1) {
       item.quantity--;
+      localStorage.setItem(this.cartItemsKey, JSON.stringify(this.items));
       this.updateCartItemCount();
     }
   }

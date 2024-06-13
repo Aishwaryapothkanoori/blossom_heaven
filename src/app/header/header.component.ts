@@ -10,6 +10,7 @@ import { CartService } from '../cart.service';
 })
 export class HeaderComponent implements OnInit{
   isLoggedIn: boolean = false;
+  isAdmin: boolean = false;
   cartItemCount: number = 0; // Assuming initially user is not logged in
 
   constructor(private service: LoginService, private router: Router,private cartService: CartService) {}
@@ -26,5 +27,9 @@ export class HeaderComponent implements OnInit{
   logout():void {
     this.service.logout();
     this.router.navigate(['/home']);
+  }
+  isAdminLogin(): boolean {
+    this.isAdmin = this.service.isAdmin();
+    return this.isAdmin;
   }
 }
