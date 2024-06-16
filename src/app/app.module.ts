@@ -32,6 +32,8 @@ import { CommonModule } from '@angular/common';
 import { CartService } from './cart.service';
 import { BuynowbuttonComponent } from './buynowbutton/buynowbutton.component';
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
