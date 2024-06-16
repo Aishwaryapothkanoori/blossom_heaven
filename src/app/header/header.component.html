@@ -1,3 +1,4 @@
+<!-- 
 <nav class="navbar navbar-expand-lg bg-black fixed-top" data-bs-theme="dark">
     <div class="collapse navbar-collapse" id="navbarColor01">
         <img class="object-fit-contain border-0 rounded" src="assets/logo.jpg" alt="Card image cap"
@@ -13,10 +14,7 @@
             <span *ngIf="cartItemCount > 0" class="badge rounded-pill bg-danger">{{ cartItemCount }}</span>
           </a>
         </li>
-        <!-- <li class="nav-item">
-          <a class="nav-link text-white me-5" routerLink="login" *ngIf="!isLoggedIn">LOGIN</a>
-        <a class="nav-link text-white me-5"  *ngIf="isLoggedIn" (click)="logout()">LOGOUT</a>
-        </li>-->
+       
         <li class="nav-item" *ngIf="!isLoggedIn"> 
           <a class="nav-link text-white me-5" routerLink="login">LOGIN</a>
         </li>
@@ -24,6 +22,45 @@
           <a class="nav-link text-white me-5" (click)="logout()">LOGOUT</a>
         </li>
       </ul>
+    </div>
+  </nav>
+  <a class="home" routerLink="home"></a> -->
+
+
+
+
+
+  <nav class="navbar navbar-expand-lg bg-black fixed-top" data-bs-theme="dark">
+    <div class="container-fluid d-flex justify-content-between align-items-center">
+      <img class="object-fit-contain border-0 rounded" src="assets/logo.jpg" alt="Card image cap"
+                    width="5%" height="5%">
+      <a class="navbar-brand mx-auto" href="#" style="font-family: 'Pacifico', cursive;color: white;"><i>Blossom Heaven</i></a>
+      
+      <button  class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span  class="navbar-toggler-icon"></span>
+      </button>
+      <div   class="collapse navbar-collapse" id="navbarNav">
+        <ul  class="navbar-nav ms-auto">
+          
+          <li class="nav-item">
+            <a class="nav-link text-white me-3" routerLink="about">About Us</a>
+          </li>
+        <li class="nav-item">
+          <a class="nav-link text-white me-3" routerLink="cart">Cart
+            <!-- <i class="fas fa-shopping-cart"></i> -->
+            <span *ngIf="cartItemCount > 0" class="badge rounded-pill bg-danger">{{ cartItemCount }}</span>
+          </a>
+        </li>
+       
+        <li class="nav-item" *ngIf="!isLoggedIn"> 
+          <a class="nav-link text-white me-5" routerLink="login">LOGIN</a>
+        </li>
+        <li class="nav-item" *ngIf="isLoggedIn && !isAdminLogin()">
+          <a class="nav-link text-white me-5" (click)="logout()">LOGOUT</a>
+        </li>
+           
+        </ul>
+      </div>
     </div>
   </nav>
   <a class="home" routerLink="home"></a>
