@@ -1,1 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+/* src/styles.css */
+@charset "UTF-8";
+:root {
+  --bs-blue: #0d6efd;
+  /* Other CSS variables */
+}
+body {
+  margin: 0;
+  font-family: var(--bs-body-font-family);
+  /* Other CSS rules */
+}
+
