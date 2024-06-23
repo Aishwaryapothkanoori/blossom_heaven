@@ -2,8 +2,9 @@
   "name": "blossom-heaven",
   "version": "0.0.0",
   "scripts": {
-     "predeploy": "ng build --configuration=production --base-href https://Aishwaryapothkanoori.github.io/blossom_heaven/",
-    "deploy": "gh-pages -d dist/blossom-heaven",
+    "predeploy": "ng build --configuration=production",
+    "deploy": "npx angular-cli-ghpages --dir=dist/blossom-heaven"
+  ,
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
