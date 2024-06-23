@@ -1,16 +1,16 @@
 {
-  "homepage": "https://Aishwaryapothkanoori.github.io/blossom_heaven",
   "name": "blossom-heaven",
   "version": "0.0.0",
   "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
+     "predeploy": "ng build --configuration=production --base-href https://Aishwaryapothkanoori.github.io/blossom_heaven/",
+    "deploy": "gh-pages -d dist/blossom-heaven",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
+   "homepage": "https://Aishwaryapothkanoori.github.io/blossom_heaven/",
   "private": true,
   "dependencies": {
     "@angular/animations": "^17.2.0",
