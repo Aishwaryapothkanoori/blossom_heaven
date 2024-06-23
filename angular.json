@@ -23,7 +23,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/blossom_heaven",
+            "outputPath": "dist/blossom-heaven",
             "baseHref": "/blossom_heaven/",
             "index": "src/index.html",
             "browser": "src/main.ts",
@@ -45,7 +45,7 @@
           ]
           },
           "configurations": {
-            "production": {
+            "production": {"baseHref": "/blossom_heaven/",
               "budgets": [
                 {
                   "type": "initial",
