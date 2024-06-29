@@ -2,12 +2,11 @@
   "name": "blossom-heaven",
   "version": "0.0.0",
   "scripts": {
-    "predeploy": "ng build --configuration=production",
-    "deploy": "npx angular-cli-ghpages --dir=dist/blossom-heaven"
-  ,
+    "predeploy": "npm run build",
+    "deploy": "npx angular-cli-ghpages --dir=docs",
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build --configuration=production --output-path=docs --base-href /blossom_heaven/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
